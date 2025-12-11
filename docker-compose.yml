@@ -1,0 +1,31 @@
+services:
+  calculator:
+    # cambiar nombre imagen
+    image: calculator:v1.0.1
+    build:
+      context: ./client
+      args:
+        API_URL: http://localhost:8081/api-suma
+    container_name: exu2-calculadora
+    ports:
+      - "80:80"
+    networks:
+      - exu2-lddc-net
+  operations:
+  # cambiar nombre imagen 
+    image: operations:v1.0.1
+    build:
+      context: ./server
+    container_name: exu2-operaciones
+    environment:
+      SERVER_PORT: 8080
+    ports:
+      - "8081:8080"
+    networks:
+      - exu2-lddc-net
+    depends_on:
+      - calculator
+
+networks:
+  exu2-lddc-net:
+    external: true
