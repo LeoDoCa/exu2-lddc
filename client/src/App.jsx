@@ -39,7 +39,7 @@ function App() {
       </nav>
 
       <div className="container mt-4">
-        <h2>Calculadora de suma de 2 números</h2>
+        <h2>Calculadora toda simple</h2>
         <hr />
         <div className="row">
           <div className="col-4">
